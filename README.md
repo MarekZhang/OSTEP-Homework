@@ -9,6 +9,8 @@
 - [Chapter 6 Limit Direct Execution](./Chapter6-Limit-Direct-Execution)
 - [Chapter 7 Scheduling](./Chapter7-Scheduling)
 - [Chapter 8 Multiple Level FeedBack Queue](./Chapter8-MLFQ)
+- [Chapter 9 Proportional Sharing](./Chapter9-Proportional-Sharing)
+- [Chapter 10 Multiprocessor Scheduling](./Chapter10-Multiprocessor-Scheduling)
 
 
 
