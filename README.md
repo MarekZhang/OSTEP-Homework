@@ -11,6 +11,8 @@
 - [Chapter 8 Multiple Level FeedBack Queue](./Chapter8-MLFQ)
 - [Chapter 9 Proportional Sharing](./Chapter9-Proportional-Sharing)
 - [Chapter 10 Multiprocessor Scheduling](./Chapter10-Multiprocessor-Scheduling)
+- [Chapter 13 Address Space](./Chapter13-Address-Space)
+- [Chapter 14 Memory API](./Chapter14-Memory-API)
 
 
 

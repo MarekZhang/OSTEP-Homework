@@ -14,7 +14,7 @@ after warming up(10), process runs two times faster
 
 Q4. Now add one more bit of tracing, to show the status of each CPU cache for each job, with the `-C` flag. For each job, each cache will either show a blank space (if the cache is cold for that job) or a **’w’** (if the cache is warm for that job). At what point does the cache become warm for job **’a’** in this simple example? What happens as you change the warmup time parameter (`-w`) to lower or higher values than the default?
 
-```java
+```shell
 $ ./multi.py -n 1 -L a:30:200 -M 300 -T -C -w 5 -c
 ```
 
@@ -31,7 +31,7 @@ Q6. Now we’ll apply some explicit controls to study cache affinity, as describ
 
 Q7. One interesting aspect of caching multiprocessors is the opportunity for better-than-expected speed up of jobs when using multiple CPUs (and their caches) as compared to running jobs on a single processor. Specifically, when you run on N CPUs, sometimes you can speed up by more than a factor of N, a situation entitled super-linear speedup. To experiment with this, use the job description here (`-L a:100:100,b:100:100,c:100:100`) with a small cache (`-M 50`) to create three jobs. Run this on systems with 1, 2, and 3 CPUs (`-n 1, -n 2, -n 3`). Now, do the same, but with a larger per-CPU cache of size 100. What do you notice about performance as the number of CPUs scales? Use `-c` to confirm your guesses, and other tracing flags to dive even deeper.
 
-```java
+```shell
 $ ./multi.py -n 1 -L a:100:100,b:100:100,c:100:100 -T -C -M 50 -c     300
 $ ./multi.py -n 2 -L a:100:100,b:100:100,c:100:100 -T -C -M 50 -c     150
 $ ./multi.py -n 3 -L a:100:100,b:100:100,c:100:100 -T -C -M 50 -c     100
@@ -43,8 +43,8 @@ $ ./multi.py -n 2 -L a:100:100,b:100:100,c:100:100 -T -C -M 100 -c    150
 $ ./multi.py -n 3 -L a:100:100,b:100:100,c:100:100 -T -C -M 100 -c    55
 ```
 
-Q8. One other aspect of the simulator worth studying is the per-CPU scheduling option, the -p flag. Run with two CPUs again, and this three job configuration (-L a:100:100,b:100:50,c:100:50). How does this option do, as opposed to the hand-controlled affinity limits you put in place above? How does performance change as you alter the ’peek interval’ (-P) to lower or higher values? How does this per-CPU approach work as the number of CPUs scales?
+Q8. One other aspect of the simulator worth studying is the per-CPU scheduling option, the -p flag. Run with two CPUs again, and this three job configuration (`-L a:100:100,b:100:50,c:100:50`). How does this option do, as opposed to the hand-controlled affinity limits you put in place above? How does performance change as you alter the ’peek interval’ (-P) to lower or higher values? How does this per-CPU approach work as the number of CPUs scales?
 
-```java
+```shell
 $ ./multi.py -n 2 -L b:100:50,a:100:100,c:100:50 -T -C -p -P 10 -c // 90s
 ```
