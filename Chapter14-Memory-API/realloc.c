@@ -28,7 +28,7 @@ int main(int argc, char * argv[])
         cur->val = i;
     }
     gettimeofday(&end, NULL);
-    printf("time elapsed: %.1f ms\n", ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000    .0);
+    printf("time elapsed: %.1f ms\n", ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000.0);
     cur = head;
     while(cur){
         tempt = cur;
@@ -46,7 +46,7 @@ int main(int argc, char * argv[])
         arr[i + 1] = i + 1;
     }
     gettimeofday(&end, NULL);
-    printf("time elapsed: %.1f ms\n", ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000    .0);
+    printf("time elapsed: %.1f ms\n", ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000.0);
     free(arr);
 
     exit(0);
