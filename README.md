@@ -16,6 +16,7 @@
 - [Chapter 15 Address Translations](./C15-Address-Translation)
 - [Chapter 16 Segmentation](./C16-Segmentation)
 - [Chapter 17 Free-Space Management](./C17-Free-Space-Management)
+- [Chapter 18 Paging-Introduction](./C18-Paging-Introduction)
 
 
 
