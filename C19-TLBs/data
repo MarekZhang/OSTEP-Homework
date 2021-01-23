@@ -1,0 +1,13 @@
+Jump     1 pages | time    0.0 nanoseconds
+Jump     2 pages | time    0.0 nanoseconds
+Jump     4 pages | time    0.0 nanoseconds
+Jump     8 pages | time    0.0 nanoseconds
+Jump    16 pages | time    0.1 nanoseconds
+Jump    32 pages | time    0.3 nanoseconds
+Jump    64 pages | time    0.7 nanoseconds
+Jump   128 pages | time    1.4 nanoseconds
+Jump   256 pages | time    2.6 nanoseconds
+Jump   512 pages | time    5.2 nanoseconds
+Jump  1024 pages | time   11.6 nanoseconds
+Jump  2048 pages | time   20.8 nanoseconds
+Jump  4096 pages | time   37.3 nanoseconds
