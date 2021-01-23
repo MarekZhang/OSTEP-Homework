@@ -2,11 +2,25 @@
 
 1. we use `gettimeofday()` as the timer, and the minimum unit is microsecond. We want to acquire result with the precision of nanosecond, so we need to repeat the measurement and calculate the average value. The default times of repetition is 1000 times, we can change the value in  `test.sh` and `data.sh`
 
-    Refer to [@xxyz](https://github.com/xxyzz), the chapter 8.17 of APUE mentioned use `times`  to record the CPU time of a process
+    Refer to [@xxyz](https://github.com/xxyzz), the chapter 8.17 of APUE mentioned using `times` function to record the CPU time of a process
 
 2. In `test.c` , we can print some useful information such as the page size and the overhead of function `gettimeofday()`
 
     In macOS X, we can also print some useful system information with the command `$ ulimit -a`
+    ```bash
+    $ ulimit -a
+      -t: cpu time (seconds)              unlimited
+      -f: file size (blocks)              unlimited
+      -d: data seg size (kbytes)          unlimited
+      -s: stack size (kbytes)             8192
+      -c: core file size (blocks)         0
+      -v: address space (kbytes)          unlimited
+      -l: locked-in-memory size (kbytes)  unlimited
+      -u: processes                       1392
+      -n: file descriptors                256
+      ```
+
+    As we can see, the maximum size of stack is 8192kB, we should use `malloc` to initialize a bigger array.
 
     `pthread_setaffinity_np` does not work on macOS. Refer to this blog, we can customize a similar function to bind our program to one core of CPU.
 
