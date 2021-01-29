@@ -22,7 +22,7 @@
 
     As we can see, the maximum size of stack is 8192kB, we should use `malloc` to initialize a bigger array.
 
-    `pthread_setaffinity_np` does not work on macOS. Refer to this blog, we can customize a similar function to bind our program to one core of CPU.
+    `pthread_setaffinity_np` does not work on macOS. Refer to this [blog](http://www.hybridkernel.com/2015/01/18/binding_threads_to_cores_osx.html), we can customize a similar function to bind our program to one core of CPU.
 
 3. In `test.sh` , the measurement result would be printed to the terminal, whereas, the `data.sh` saves the measurement result into a file named 'data'.
 

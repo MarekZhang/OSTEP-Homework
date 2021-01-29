@@ -17,6 +17,8 @@
 - [Chapter 16 Segmentation](./C16-Segmentation)
 - [Chapter 17 Free-Space Management](./C17-Free-Space-Management)
 - [Chapter 18 Paging-Introduction](./C18-Paging-Introduction)
+- [Chapter 19 TLBs](./C19-TLBs)
+- [Chapter 20 Smaller Tables](./C20-Smaller-Tables)
 
 
 
