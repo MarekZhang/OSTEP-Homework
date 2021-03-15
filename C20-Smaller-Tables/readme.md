@@ -10,4 +10,4 @@ Q2. Use the simulator to perform translations given random seeds 0, 1, and 2, an
 
 Q3. Given your understanding of how cache memory works, how do you think memory references to the page table will behave in the cache? Will they lead to lots of cache hits (and thus fast accesses?) Or lots of misses (and thus slow accesses)?
 
-- cause
+- cause slow accesses
