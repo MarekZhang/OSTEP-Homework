@@ -20,6 +20,9 @@
 - [Chapter 19 TLBs](./C19-TLBs)
 - [Chapter 20 Smaller Tables](./C20-Smaller-Tables)
 - [Chapter 26 Concurrency Introduction](./C26-Concurrency-Introduction)
+- [Chapter 27 Thread API](./C27-Thread-API)
+
+
 
 
 

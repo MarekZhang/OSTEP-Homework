@@ -62,3 +62,6 @@ Q9. One last program: wait-for-me.s. Run: `./x86.py -p wait-for-me.s -a ax=1,ax=
 - 1
 
 Q10. Now switch the inputs: `./x86.py -p wait-for-me.s -a ax=0,ax=1 -R ax -M 2000` How do the threads behave? What is thread 0 doing? How would changing the interrupt interval (e.g., -i 1000, or perhaps to use random intervals) change the trace outcome? Is the program efficiently using the CPU?
+
+- thread 0 keeps running
+- no
