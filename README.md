@@ -24,6 +24,7 @@
 - [Chapter 26 Concurrency Introduction](./C26-Concurrency-Introduction)
 - [Chapter 27 Thread API](./C27-Thread-API)
 - [Chapter 28 Locks](./C28-Locks)
+- [Chapter 29 Concurrent Data Structures](./C29-Concurrent-Data-Structures)
 
 
 
