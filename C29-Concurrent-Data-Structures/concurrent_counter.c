@@ -10,12 +10,7 @@
 #include <mach/thread_act.h>
 #include <assert.h>
 #include <unistd.h>
-#define Pthread_mutex_init(m, v)    assert(pthread_mutex_init(m, v) == 0);
-#define Pthread_mutex_lock(m)       assert(pthread_mutex_lock(m) == 0);
-#define Pthread_mutex_unlock(m)     assert(pthread_mutex_unlock(m) == 0);
-#define Pthread_create(u,x,y,z)     assert(pthread_create(u,x,y,z) == 0);
-#define Pthread_join(m,v)           assert(pthread_join(m,v)==0);
-#define ONE_MILLION 1e6
+#include "helper_lib.h"
 
 typedef struct cpu_set {
   uint32_t    count;
@@ -29,13 +24,9 @@ typedef struct __counter {
 
 typedef struct __thread_arg {
   int cpu_idx;
-  pthread_t p;
-  counter *c;
+  pthread_t thread;
+  counter *counter;
 } thread_arg;
-
-void init(counter *c);
-
-void increase_counter(counter *c);
 
 static inline void
 CPU_ZERO(cpu_set_t *cs) { cs->count = 0; }
@@ -53,6 +44,9 @@ int pthread_setaffinity_np(pthread_t thread, size_t cpu_size,
 //thread function
 void *thread_function(void *args);
 
+void init(counter *c);
+
+void increase_counter(counter *c);
 
 int main(int argc, char *argv[])
 {
@@ -69,6 +63,7 @@ int main(int argc, char *argv[])
 
   for(int i = 1; i <= num_of_core; i++) {
     thread_arg * args = malloc(i * sizeof(thread_arg));
+    c->count = 0;
     if(args == NULL) {
       printf("Failed to allocate memory space\n");
       exit(1);
@@ -76,18 +71,19 @@ int main(int argc, char *argv[])
 
     gettimeofday(&time_before, NULL);
     // create threads
-    for(int j = 1; j <= i; j++) {
+    for(int j = 0; j < i; j++) {
       args[j].cpu_idx = j;
-      args[j].c = c;
-      Pthread_create(&args[j].p, NULL, thread_function, &args[j]);
+      args[j].counter = c;
+      Pthread_create(&args[j].thread, NULL, thread_function, &args[j]);
     }
 
     // join thread
-    for(int j = 1; j <=i; j++) {
-      Pthread_join(args[j].p, NULL);
+    for(int j = 0; j < i; j++) {
+      Pthread_join(args[j].thread, NULL);
     }
     gettimeofday(&time_after, NULL);
     printf("Running %d threads..\n", i);
+    printf("counter value: %d\n", c->count);
     printf("time elapsed %.2f s\n\n", (time_after.tv_sec - time_before.tv_sec) + (time_after.tv_usec - time_before.tv_usec) / ONE_MILLION);
 
   }
@@ -147,11 +143,11 @@ void *thread_function(void *args)
   cpu_set = malloc(sizeof(cpu_set_t));
   CPU_ZERO(cpu_set);
   CPU_SET(arg->cpu_idx, cpu_set);
-  pthread_setaffinity_np(arg->p, sizeof(size_t), cpu_set);
+  pthread_setaffinity_np(arg->thread, sizeof(size_t), cpu_set);
   
   // increase value
   for(int i = 0; i < ONE_MILLION; i++) 
-    increase_counter(arg->c);
+    increase_counter(arg->counter);
 
   return (void*) 1;
 }
