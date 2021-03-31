@@ -1,0 +1,81 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Cond_init	common_threads.h	/^#define Cond_init(/;"	d
+Cond_signal	common_threads.h	/^#define Cond_signal(/;"	d
+Cond_wait	common_threads.h	/^#define Cond_wait(/;"	d
+Malloc	common_threads.h	/^#define Malloc(/;"	d
+Mutex_init	common_threads.h	/^#define Mutex_init(/;"	d
+Mutex_lock	common_threads.h	/^#define Mutex_lock(/;"	d
+Mutex_unlock	common_threads.h	/^#define Mutex_unlock(/;"	d
+Pthread_cond_init	common_threads.h	/^#define Pthread_cond_init(/;"	d
+Pthread_cond_signal	common_threads.h	/^#define Pthread_cond_signal(/;"	d
+Pthread_cond_wait	common_threads.h	/^#define Pthread_cond_wait(/;"	d
+Pthread_create	common_threads.h	/^#define Pthread_create(/;"	d
+Pthread_join	common_threads.h	/^#define Pthread_join(/;"	d
+Pthread_mutex_init	common_threads.h	/^#define Pthread_mutex_init(/;"	d
+Pthread_mutex_lock	common_threads.h	/^#define Pthread_mutex_lock(/;"	d
+Pthread_mutex_unlock	common_threads.h	/^#define Pthread_mutex_unlock(/;"	d
+Sem_close	common_threads.h	/^#define Sem_close(/;"	d
+Sem_init	common_threads.h	/^#define Sem_init(/;"	d
+Sem_open	barrier.c	/^sem_t *Sem_open(const char *name, int val) {$/;"	f
+Sem_open	rendezvous.c	/^sem_t *Sem_open(const char *name, int val) {$/;"	f
+Sem_post	common_threads.h	/^#define Sem_post(/;"	d
+Sem_wait	common_threads.h	/^#define Sem_wait(/;"	d
+__barrier_t	barrier.c	/^typedef struct __barrier_t {$/;"	s	file:
+__common_threads_h__	common_threads.h	/^#define __common_threads_h__$/;"	d
+__rwlock_t	reader-writer-nostarve.c	/^typedef struct __rwlock_t {$/;"	s	file:
+__rwlock_t	reader-writer.c	/^typedef struct __rwlock_t {$/;"	s	file:
+__tinfo_t	barrier.c	/^typedef struct __tinfo_t {$/;"	s	file:
+b	barrier.c	/^barrier_t b;$/;"	v
+barrier	barrier.c	/^void barrier(barrier_t *b) {$/;"	f
+barrier_init	barrier.c	/^void barrier_init(barrier_t *b, int num_threads) {$/;"	f
+barrier_t	barrier.c	/^} barrier_t;$/;"	t	typeref:struct:__barrier_t	file:
+child	barrier.c	/^void *child(void *arg) {$/;"	f
+child	fork-join.c	/^void *child(void *arg) {$/;"	f
+child_1	rendezvous.c	/^void *child_1(void *arg) {$/;"	f
+child_2	rendezvous.c	/^void *child_2(void *arg) {$/;"	f
+lock	barrier.c	/^  pthread_mutex_t  *lock;$/;"	m	struct:__barrier_t	file:
+lock	reader-writer-nostarve.c	/^rwlock_t lock;$/;"	v
+lock	reader-writer.c	/^rwlock_t lock;$/;"	v
+loops	reader-writer-nostarve.c	/^int loops;$/;"	v
+loops	reader-writer.c	/^int loops;$/;"	v
+main	barrier.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	fork-join.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	mutex-nostarve.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	reader-writer-nostarve.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	reader-writer.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	rendezvous.c	/^int main(int argc, char *argv[]) {$/;"	f
+ns_mutex_acquire	mutex-nostarve.c	/^void ns_mutex_acquire(ns_mutex_t *m) {$/;"	f
+ns_mutex_init	mutex-nostarve.c	/^void ns_mutex_init(ns_mutex_t *m) {$/;"	f
+ns_mutex_release	mutex-nostarve.c	/^void ns_mutex_release(ns_mutex_t *m) {$/;"	f
+reader	reader-writer-nostarve.c	/^void *reader(void *arg) {$/;"	f
+reader	reader-writer.c	/^void *reader(void *arg) {$/;"	f
+rwlock_acquire_readlock	reader-writer-nostarve.c	/^void rwlock_acquire_readlock(rwlock_t *rw) {$/;"	f
+rwlock_acquire_readlock	reader-writer.c	/^void rwlock_acquire_readlock(rwlock_t *rw) {$/;"	f
+rwlock_acquire_writelock	reader-writer-nostarve.c	/^void rwlock_acquire_writelock(rwlock_t *rw) {$/;"	f
+rwlock_acquire_writelock	reader-writer.c	/^void rwlock_acquire_writelock(rwlock_t *rw) {$/;"	f
+rwlock_init	reader-writer-nostarve.c	/^void rwlock_init(rwlock_t *rw) {$/;"	f
+rwlock_init	reader-writer.c	/^void rwlock_init(rwlock_t *rw) {$/;"	f
+rwlock_release_readlock	reader-writer-nostarve.c	/^void rwlock_release_readlock(rwlock_t *rw) {$/;"	f
+rwlock_release_readlock	reader-writer.c	/^void rwlock_release_readlock(rwlock_t *rw) {$/;"	f
+rwlock_release_writelock	reader-writer-nostarve.c	/^void rwlock_release_writelock(rwlock_t *rw) {$/;"	f
+rwlock_release_writelock	reader-writer.c	/^void rwlock_release_writelock(rwlock_t *rw) {$/;"	f
+rwlock_t	reader-writer-nostarve.c	/^} rwlock_t;$/;"	t	typeref:struct:__rwlock_t	file:
+rwlock_t	reader-writer.c	/^} rwlock_t;$/;"	t	typeref:struct:__rwlock_t	file:
+s	fork-join.c	/^sem_t *s; $/;"	v
+s1	rendezvous.c	/^sem_t *s1, *s2;$/;"	v
+s2	rendezvous.c	/^sem_t *s1, *s2;$/;"	v
+sem1	barrier.c	/^  sem_t            *sem1;    $/;"	m	struct:__barrier_t	file:
+sem2	barrier.c	/^  sem_t            *sem2;$/;"	m	struct:__barrier_t	file:
+thread_count	barrier.c	/^  int              thread_count;$/;"	m	struct:__barrier_t	file:
+thread_id	barrier.c	/^    int thread_id;$/;"	m	struct:__tinfo_t	file:
+tinfo_t	barrier.c	/^} tinfo_t;$/;"	t	typeref:struct:__tinfo_t	file:
+value	reader-writer-nostarve.c	/^int value = 0;$/;"	v
+value	reader-writer.c	/^int value = 0;$/;"	v
+worker	mutex-nostarve.c	/^void *worker(void *arg) {$/;"	f
+writer	reader-writer-nostarve.c	/^void *writer(void *arg) {$/;"	f
+writer	reader-writer.c	/^void *writer(void *arg) {$/;"	f
