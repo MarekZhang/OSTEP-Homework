@@ -32,6 +32,7 @@
 #define Sem_wait(sem)                                    assert(sem_wait(sem) == 0);
 #define Sem_post(sem)                                    assert(sem_post(sem) == 0);
 #define Sem_close(sem)                                   assert(sem_close(sem) == 0);
+#define Sem_unlink(sem)                                  assert(sem_unlink(sem) == 0);
 
 #endif // __common_threads_h__
 
