@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
   //  perror("usage: ./tcp_client <sleep-time>\n");
   //  exit(EXIT_FAILURE);
   //}
-  int sleep_time = atoi(argv[1]);
+//  int sleep_time = atoi(argv[1]);
   int fd;
   fd = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
   if (fd < 0) {

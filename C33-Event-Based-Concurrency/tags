@@ -4,4 +4,11 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+PORT	tcp_client.c	/^#define PORT /;"	d	file:
+PORT	tcp_server.c	/^#define PORT /;"	d	file:
+_foo	test_struct.c	/^typedef struct _foo {$/;"	s	file:
+foo	test_struct.c	/^} foo;$/;"	t	typeref:struct:_foo	file:
+main	tcp_client.c	/^int main(int argc, char *argv[]) {$/;"	f
 main	tcp_server.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	test_struct.c	/^int main(int argc, char *argv[]) {$/;"	f
+val	test_struct.c	/^  int val;$/;"	m	struct:_foo	file:
