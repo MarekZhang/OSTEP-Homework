@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     printf("server is running\n");
     int conn;
     size = sizeof(client_name);
-    conn = accept(sock, (struct sockaddr *) &client_name, &size);
+    conn = accept(sock, (struct sockaddr *) &client_name, (socklen_t *)&size);
     if (conn < 0) {
       perror("failed to accept connection.\n");
       exit(EXIT_FAILURE);

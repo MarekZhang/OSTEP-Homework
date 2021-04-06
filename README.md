@@ -28,6 +28,7 @@
 - [Chapter 30 Condition Variables](./C30-Condition-Variables)
 - [Chapter 31 Semaphores](./C31-Semaphores)
 - [Chapter 32 Concurrency Problems](./C32-Concurrency-Problems)
+- [Chapter 33 Event Based Concurrency](./C33-Event-Based-Concurrency)
 
 
 

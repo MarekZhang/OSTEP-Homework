@@ -7,9 +7,11 @@
 #include <time.h>
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 #define PORT 8888
 #define BUFFSIZE 1024
+#define ONEMILLION 1000000
 
 int main(int argc, char *argv[]) {
   int sock;
@@ -41,6 +43,8 @@ int main(int argc, char *argv[]) {
   struct fd_set main_set, temp_set;
   FD_ZERO(&main_set);
   FD_SET(sock, &main_set);
+  struct timeval start_time, end_time;
+  int request_num = 0;
   while(1) {
     //printf("server is running\n");
     temp_set = main_set;
@@ -63,6 +67,12 @@ int main(int argc, char *argv[]) {
           }
           //printf("the newly added file descriptor is %d\n", conn);
           FD_SET(conn, &main_set);
+
+          if(request_num == 0) {
+            gettimeofday(&start_time, NULL);
+          }
+
+          request_num++;
         } else {
           char buff[BUFFSIZE];
           memset(buff, 0, BUFFSIZE);
@@ -71,21 +81,32 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
           }
 
-          printf("recieved data from the client side: %s\n", buff);
-          int data_len = (int)strlen(buff);
+          printf("openning file: %s\n", buff);
+
+          int fp;
+          if((fp = open(buff, O_RDONLY)) < 0) {
+            perror("failed to open file");
+            exit(EXIT_FAILURE);
+          }
           
           memset(buff, 0, BUFFSIZE);
-          sprintf(buff, "recieved number of characters: %d\n", data_len);
-          
+          if(read(fp, buff, BUFFSIZE) < 0) {
+            perror("failed to open file");
+            exit(EXIT_FAILURE);
+          }
+
+          printf("the server side is sending file content.\n");
+
           if(send(i, buff, strlen(buff), 0) == -1) {
             perror("failed to response to the client\n");
             exit(EXIT_FAILURE);
           }
           close(i);
+          close(fp);
           FD_CLR(i, &main_set);
+          request_num--;
         }
       } 
-      
     }
     // might print multiple times when there are more than one file descriptor is valid
     //fprintf(stderr, "Server: connect from host: %s, port: %hd.\n", inet_ntoa(client_name.sin_addr), ntohs(client_name.sin_port));
@@ -93,6 +114,11 @@ int main(int argc, char *argv[]) {
     //t = cur_time.tv_sec;
     //info = localtime(&t); 
     //printf("%s", asctime(info));
+    if (request_num == 0) {
+      gettimeofday(&end_time, NULL);
+      printf("Server response to all request. | time elapsed: %.6f\n", end_time.tv_sec - start_time.tv_sec + (end_time.tv_usec - start_time.tv_usec) / (float)ONEMILLION);
+    }
+
   }
 }
 

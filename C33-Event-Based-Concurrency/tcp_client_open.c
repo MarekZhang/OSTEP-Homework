@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[]) {
   if (argc != 3) {
-    perror("usage: ./tcp_client <sleep time> <data to send>\n");
+    perror("usage: ./tcp_client <sleep time> <file path>\n");
     exit(EXIT_FAILURE);
   }
   int sleep_time = atoi(argv[1]);
@@ -27,13 +27,13 @@ int main(int argc, char *argv[]) {
   server_addr.sin_family = AF_INET;
   server_addr.sin_port = htons(PORT);
   server_addr.sin_addr.s_addr = inet_addr("127.0.0.1"); 
+  sleep(sleep_time);
 
   if (connect(fd, (struct sockaddr *) &server_addr, sizeof(struct sockaddr_in)) != 0) {
     perror("failed to connect to the server. \n");
     exit(EXIT_FAILURE);
   }
 
-  sleep(sleep_time);
   char buff[BUFFSIZE]; 
   memset(buff, 0, BUFFSIZE);
   strncpy(buff, argv[2], strlen(argv[2]));
