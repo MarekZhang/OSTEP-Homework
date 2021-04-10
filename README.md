@@ -30,6 +30,8 @@
 - [Chapter 32 Concurrency Problems](./C32-Concurrency-Problems)
 - [Chapter 33 Event Based Concurrency](./C33-Event-Based-Concurrency)
 
+### Persistence
+- [Chapter 39 Files and Directories](./C39-Files-And-Directories)
 
 
 
