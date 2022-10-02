@@ -1,4 +1,4 @@
-#define _GUN_SOURCE
+#define _GNU_SOURCE
 #include <sched.h>
 #include<sys/time.h>
 #include<stdio.h>
